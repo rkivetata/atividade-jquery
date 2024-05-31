@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  /* ======================================CORES============================================ */  
+    --fonte: "Montserrat", sans-serif;
+    --fonte-pequena: 12px;
+    --fonte-normal:16px;
+
+/* ======================================CORES============================================ */
+    --cinza-escuro: #212529;
+    --cinza-medio: #495057;
+    --cinza-claro: #495057;
+    --offwhite:#f8f9fa;
+    --roxo:#d0bfff;
+    --rosa-claro:#fff0f6;
+    --rosa-medio:#ffdeeb;
+    --rosa-escuro: #faa2c1;
+}
+
+* {
+    font-family: var(--fonte);
+    font-size: var(--fonte-normal);
+    color: var(--cinza-escuro);
+}
+
+.texto {
+  font-weight: 500;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.campo__obrigatorio {
+    font-size: var(--fonte-pequena);
+    color: var(--roxo);
+    margin: 0.2em;
+    font-weight: 200;
+}
+
+
+.botao__input {
+    border: 0.5px solid var(--cinza-medio);
+    border-radius: 4px;
+}
+
+.botao__enviar, .botao__esconde, .quadrado__focus {
+    border: 0.5px solid var(--cinza-escuro);
+    border-radius: 8px;
+    font-family: var(--fonte);
+    font-size: var(--fonte-normal);
+    margin: 1.5em;
+    color:var(--cinza-escuro);
+    background-color: var(--offwhite);
+    padding: 0.5em 1em;  
+}
+
+.botao__jquery {
+    font-family: var(--fonte);
+    font-size: var(--fonte-pequena);
+    font-weight: 600;
+    padding: 0.5em;
+    border: solid var(--rosa-medio) 0.5px;
+    border-radius: 8px;
+    background-color: var(--rosa-claro);
+    color: var(--rosa-escuro);
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+.quadrado__focus::placeholder{
+    font-size: var(--fonte-pequena);
+}

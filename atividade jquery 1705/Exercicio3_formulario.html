@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <title>Atividade Prática – Jquery e JS - Exercicio 3 - FORMULARIO e mudança de botão</title>
+</head>
+<body>
+    <main class="principal">
+       <h1>Formulario de contato</h1>
+       <p>Validação dos campos com jQuery antes do envio</p>
+
+       <form name="formulario" id="formulario">
+
+        <div class="nome">
+            <p class="texto">Nome</p>
+            <input class="botao__input" type="text" name="nome" id="nome">
+            <p class="campo__obrigatorio">*Esse campo é obrigatório.</p>
+        </div>
+
+        <div class="email">
+            <p class="texto">Email</p>
+            <input class="botao__input" type="email" name="email" id="email">
+            <p class="campo__obrigatorio">*Esse campo é obrigatório.</p>
+        </div>
+
+        <div class="telefone">
+            <p class="texto">Telefone</p>
+            <input class="botao__input" type="text" name="telefone" id="telefone">
+            <p class="campo__obrigatorio">*Esse campo é obrigatório.</p>
+        </div>
+
+        <input class="botao__enviar" type="submit">
+
+       </form>
+    </main>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#formulario").validate({
+                //DEFININDO AS REGRAS
+                rules:{
+                    nome:{
+                        required: true,
+                        minlength:2
+                    },
+                    email:{
+                        required:true,
+                        email: true
+                    },
+                    telefone:{
+                        required:true,
+                        minlength:11,
+                        maxlength: 13
+                    },
+                },
+                
+                //DEFINE AS MENSAGENS DE ERRO PARA CADA REGRA
+                messages:{
+                    nome:{
+                        required: "Por favor, digite seu nome.",
+                        minlength: "O seu nome deve ter no mínimo 2 caracteres."
+                    },
+                    email:{
+                        required: "Por favor, inserir um email para contato.",
+                        email: "Por favor, digite um email valido."
+                    },
+                    telefone:{
+                        required:"Por favor, digite seu número de telefone para contato.",
+                        minlength: "Seu telefone deve ter no mínimo 11 digitos"
+                    }
+                }
+            })
+        })
+//====================================FUNCTION PARA QUANDO ESTA EM FOCO=================================
+        $(document).ready(function(){
+            $("input").focus(function(){
+                $(this).css("background-color", "#f1f3f5");
+            });
+        });
+
+        $(document).ready(function(){
+            $(".botao__enviar").mouseenter(function(){
+                $(this).css({
+                    'background-color': '#edf2ff',
+                    'color': '#bac8ff',
+                    'border': '0.5px solid #dbe4ff'
+                });
+            })
+        })
+
+        $(document).ready(function(){
+            $(".botao__enviar").mouseleave(function(){
+                $(this).css({
+                    'background-color': '#f8f9fa',
+                    'color': '#212529',
+                    'border': '1px solid #212529'
+                });
+            })
+        })
+    </script>
+</body>
+</html>

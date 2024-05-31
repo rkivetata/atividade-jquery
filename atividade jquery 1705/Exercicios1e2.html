@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Atividade Pratica jquery e js - Exercicio 1 e 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!--==================================EXERCICIO 1========================================-->  
+    <div class="exercicio 1">
+
+        <h1>Exercício 1</h1>
+
+        <h2>Botão que esconde parágrafo quando clicado</h2>
+        <div class="exercicio-1a">
+            <p class="paragrafo__esconde">paragrafo esconde-esconde</p>
+            <br><br>
+
+        <button class="botao__esconde" type="button">Clique aqui para esconder o paragrafo</button>
+            <br><br>
+        </div>
+
+        <br><br><br><br>
+
+        <h2>Div oculta que se revela ao passar o mouse</h2>
+        <br><br>
+        <div class="exercicio-1b">
+
+            <a class="link__esconde" href="#">Passe o mouse pelo link...</a>
+                <br><br>
+
+            <div class="div__oculta" style="display: none;">
+                <p>Viu a magica?</p>
+                <p>hehe</p>
+            </div>
+    
+        </div>
+        <br><br><br><br><br>
+
+        <h2>Transição suave</h2>
+        <div class="exercicio-1c">
+
+            <p class="paragrafo__transicao">Passe o mouse aqui para uma transição suave</p>
+
+            <div class="quadrado" style="width: 80px; height: 80px; background-color: #ffe3e3; display: none;"></div>
+            <br><br>
+        </div>
+        <br><br><br><br>
+    </div>
+
+    <br><br><br>
+
+    <h1>Exercício 2</h1>
+    <div class="exercicio 2">
+        <h2>Mudando cor de fundo de um objeto ao passar o mouse e adicionar uma classe css com condição</h2>
+        <input type="text" class="quadrado__focus" style="border: solid #212529 1px;" placeholder="Passe o mouse sobre mim">
+        <br><br>
+
+        <h2>Ajustando opacidade de elemento em transição</h2>
+        <div class="quadrado__opacidade" style="width: 80px; height: 80px; background-color: #faa2c1;"></div>
+    </div>
+
+<!--==================================FIM DO EXERCICIO 1========================================--> 
+
+
+    <script>
+//===================================CRIAR FUNCTION PARA ESCONDER PARAGRAFO=====================================
+        $(document).ready(function(){
+            $(".botao__esconde").click(function(){
+                $(".paragrafo__esconde").hide();
+            });
+        });
+        
+ //===================================CRIAR FUNCTION PARA MOSTRAR DIV ESCONDIDA E ESCONDER NOVAMENTE====================================
+
+        $(document).ready(function(){
+           $(".paragrafo__transicao").mouseenter(function(){
+            $(".div__oculta").show();
+           });
+        });
+
+//===================================CRIAR FUNCTION PARA ANIMACAO SUAVE====================================
+        $(document).ready(function(){
+            $(".paragrafo__transicao").mouseenter(function(){
+                $(".quadrado").fadeIn(3000);
+            });
+        });
+
+        $(document).ready(function(){
+            $(".paragrafo__transicao").mouseout(function(){
+                $(".quadrado").fadeOut(3000);
+            })
+        });
+
+//===================================FIM DAS FUNCOES DO EXERCICIO 1====================================
+
+
+//===================================INICIO DAS FUNCOES DO EXERCICIO 2====================================
+
+//===================================CRIAR FUNCTION PARA MUDAR BACKGROUND-COLOR DO INPUT====================================
+        $(document).ready(function(){
+            $(".quadrado__focus").mouseenter(function(){
+                $(this).css("background-color","#d0bfff");
+            })
+        })
+
+//===================================CRIAR FUNCTION SE O INPUT ESTIVER VAZIO=================================== 
+        $(document).ready(function(){
+            $(".quadrado__focus").blur(function(){
+                if($(this).val()==""){
+                $(this).css("border-color", "#c92a2a");
+                }
+            });
+        });
+
+//===================================CRIAR FUNCTION OPACIDADE DE ELEMENTO EM ANIMACAO=================================== 
+        $(document).ready(function(){
+            $(".quadrado__opacidade").mouseenter(function(){
+                $(this).css("opacity", "0.25");
+            })
+        })
+    </script>
+</body>
+</html>
